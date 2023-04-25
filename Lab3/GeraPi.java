@@ -23,14 +23,13 @@ class AproxPi implements Runnable {
    //--metodo executado pela thread
    public void run() { 
       float ap =0;
-      
+      // Calculando os valores de N 
       for (int i=N-id; i>=0; i-= salto) {
         int sg = (int) Math.pow(-1, i);
         float cq = (2*i)+1;
         float res =sg*(1/(cq));
         ap += res;
       }
-
      // System.out.println("Thread = " + id + " Aprox = " + ap );
       GeraPi.Api += ap;
    }
@@ -42,7 +41,7 @@ class GeraPi {
 
    public static void main (String[] args) {
 
-      //--Le as dimensoes a trabalhar 
+      //--PASSO 1: Recebe as dimensoes a trabalhar
       Scanner Obj0 = new Scanner(System.in);  
       Scanner Obj1 = new Scanner(System.in);  
       System.out.println("Entre o com N para aproximação");
@@ -50,7 +49,7 @@ class GeraPi {
       System.out.println("Entre com o numero de threads");
       int Nt = Obj1.nextInt();
 
-      //--reserva espaço para um vetor de threads
+      //--Reserva espaço para um vetor de threads
       Thread[] threads = new Thread[Nt];
   
       //--PASSO 2: transformar o objeto Runnable em Thread
@@ -72,7 +71,7 @@ class GeraPi {
       //--PASSO 5: Compara o valor da aproximação 
       float pi = 4*Api;
       System.out.println("Aproximação = "+pi+", Pi = "+ Math.PI);
-      System.out.println("Divergencia em "+ Math.abs(Math.PI-pi));
+      System.out.println("Dispariedade ="+ Math.abs(Math.PI-pi));
       System.out.println("Terminou"); 
    }
 }
