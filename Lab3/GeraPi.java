@@ -41,7 +41,7 @@ class GeraPi {
 
    public static void main (String[] args) {
 
-      //--PASSO 1: Recebe as dimensoes a trabalhar
+      //--PASSO 1: receber as dimensoes a trabalhar
       Scanner Obj0 = new Scanner(System.in);  
       Scanner Obj1 = new Scanner(System.in);  
       System.out.println("Entre o com N para aproximação");
@@ -68,10 +68,11 @@ class GeraPi {
             try { threads[i].join(); } 
             catch (InterruptedException e) { return; }
       }
-      //--PASSO 5: Compara o valor da aproximação 
+      //--PASSO 5: comparar o valor da aproximação 
       float pi = 4*Api;
-      System.out.println("Aproximação = "+pi+", Pi = "+ Math.PI);
-      System.out.println("Dispariedade ="+ Math.abs(Math.PI-pi));
+      System.out.println("N = "+ N +", Threads = "+ Nt);
+      System.out.println("Pi = "+ Math.PI+", Aproximação = "+pi);
+      System.out.println("Diferença absoluta = "+ Math.abs(Math.PI-pi));
       System.out.println("Terminou"); 
    }
 }
