@@ -22,13 +22,10 @@ class AproxPi implements Runnable {
 
    //--metodo executado pela thread
    public void run() { 
-      float ap =0;
+      double ap =0;
       // Calculando os valores de N 
       for (int i=N-id; i>=0; i-= salto) {
-        int sg = (int) Math.pow(-1, i);
-        float cq = (2*i)+1;
-        float res =sg*(1/(cq));
-        ap += res;
+        ap += ((int) Math.pow(-1.0, i))*(1.0/((2.0*i)+1.0));
       }
      // System.out.println("Thread = " + id + " Aprox = " + ap );
       GeraPi.Api += ap;
@@ -37,7 +34,7 @@ class AproxPi implements Runnable {
 
 //--classe do metodo main
 class GeraPi {
-   static float Api;
+   static double Api;
 
    public static void main (String[] args) {
 
@@ -69,10 +66,10 @@ class GeraPi {
             catch (InterruptedException e) { return; }
       }
       //--PASSO 5: comparar o valor da aproximação 
-      float pi = 4*Api;
+      double pi = 4*Api;
       System.out.println("N = "+ N +", Threads = "+ Nt);
       System.out.println("Pi = "+ Math.PI+", Aproximação = "+pi);
-      System.out.println("Diferença absoluta = "+ Math.abs(Math.PI-pi));
+      System.out.println("Diferença absoluta = "+ Math.abs((Math.PI-pi)/Math.PI));
       System.out.println("Terminou"); 
    }
 }
