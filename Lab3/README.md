@@ -1,4 +1,5 @@
-|N = 999999999, Threads = 2					|
+|
+N = 999999999, Threads = 2					|
 Pi = 3.141592653589793, Aproximação = 3.1415926525894307	|
 Diferença absoluta = 3.184252606373165E-10			|
 Terminou							|
