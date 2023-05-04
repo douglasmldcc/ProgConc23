@@ -10,7 +10,7 @@ Aluno Douglas de Morais Lima - 117227656
 
 #
 
-# Atividade 1
+## Atividade 1
 
 1. A saída esperada é de 20000, dada a soma de cada thread.
 2. Os valores foram, por algumas vezes, diferentes, isso ocorreu muito provavelmente porque as duas threads incrementaram ao mesmo tempo a mesma variável compartilhada, incrementando juntas mas computando apenas uma.
@@ -41,7 +41,7 @@ Thread : 1 terminou!
 
 Valor de 'soma' = 19682
 
-# Atividade 2
+## Atividade 2
 
 1. Os valores impressos serão sempre os mesmos, pois,a sincronização por exclusão mútua garante que cada thread incremente a variável compartilhada com segurança, mesmo que ela perca a CPU outra thread não pode acessar aquela mesma variável.
 
@@ -93,7 +93,7 @@ Thread : 1 terminou!
 
 Valor de soma = 200000
 
-# Atividade 3
+## Atividade 3
 
 1. A seção crítica do código se encontra no _public void inc() ,_ sabendo que é a função que incrementa a variável compartilhada. O valor final esperado de s, similar aos exemplos anteriores, seria de 20000.
 2. Os valores impressos não tiveram consistência com o valor esperado, assim como nos exemplos anteriores em c, as threads estão acessando a mesma variável compartilhada sem nenhum tipo de exclusão mútua, ou seja, os valores estão sendo perdidos quando a thread perde CPU.
