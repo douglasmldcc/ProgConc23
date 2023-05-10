@@ -17,7 +17,7 @@ pthread_cond_t x_cond, y_cond;
 int x = 0;
 
 
-/* Threads 4 */
+/* Threads 1 */
 void* T1 (void* t){
     printf(" Oi Maria!\n");
 
@@ -51,7 +51,7 @@ void* T3 (void* t){
     pthread_mutex_unlock(&x_mutex);
     pthread_exit(NULL);
 }
-/* Threads 1 */
+/* Threads 4 */
 void* T4 (void* t){
     pthread_mutex_lock(&x_mutex);
     while(x<3){
@@ -63,7 +63,7 @@ void* T4 (void* t){
     pthread_mutex_unlock(&x_mutex);
     pthread_exit(NULL);
 }
-
+/* Threads 5 */
 void* T5 (void* t){
     pthread_mutex_lock(&x_mutex);
     while(x<3){
