@@ -13,9 +13,9 @@ class Variavel():
         self.lock = Lock()
 
     def incrementa(self):
-        self.lock.acquire()
+        #self.lock.acquire()
         self.valor += 1
-        self.lock.release()
+        #self.lock.release()
 
     def getValor(self):
         return self.valor
