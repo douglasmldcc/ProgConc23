@@ -1,11 +1,12 @@
 #/* Disciplina: Programacao Concorrente */
 #/* Prof.: Silvana Rossetto */
 #/* Módulo 4 - Laboratório: 7 */
-#/* Codigo: Aproximacao de Pi por meio de variavel compartilhada em Python */ 
+#/* Codigo: "Hello World" usando threads em Python */
 
 from threading import Thread
 from threading import Lock
 import math
+
 
 #classe variavel compartilhada
 class Variavel():
@@ -15,13 +16,7 @@ class Variavel():
 
     def incrementa(self, i):
         self.lock.acquire()
-
-        #aproximação de pi  
-        sg = int(math.pow(-1, i))
-        cq = (2.0 * i) + 1.0
-        res = sg * (1.0 / cq)
-
-        self.valor += res
+        self.valor += self.i 
         self.lock.release()
 
     def getValor(self):
@@ -37,8 +32,14 @@ class IncrementaThread(Thread):
         self.salto = salto
 
     def run(self):
-        for pos in range(self.n-self.threadid, -1, -self.salto):
-            self.variavel.incrementa(pos)
+       ap = 0.0
+       for pos in range(self.n-self.threadid, -1, -self.salto):
+            #aproximação de pi  
+            sg = int(math.pow(-1, pos))
+            cq = (2.0 * pos) + 1.0
+            res = sg * (1.0 / cq)
+            ap += res
+       self.variavel.incrementa(ap)
 
 #fluxo principal
 if __name__ == '__main__':
